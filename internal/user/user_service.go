@@ -68,8 +68,8 @@ func (s *service) Login(c context.Context, req *LoginUserReq) (*LoginUserRes, er
 	if err != nil {
 		return &LoginUserRes{}, err
 	}
-	util.CheckPassword(req.Password, u.Password)
 
+	err = util.CheckPassword(req.Password, u.Password)
 	if err != nil {
 		return &LoginUserRes{}, err
 	}

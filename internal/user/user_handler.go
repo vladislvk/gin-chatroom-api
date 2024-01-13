@@ -45,14 +45,8 @@ func (h *Handler) Login(c *gin.Context) {
 		return
 	}
 
-	c.SetCookie("jwt", u.accessToken, 3600, "/", "localhost", false, true)
-
-	res := &LoginUserRes{
-		Username: u.Username,
-		ID:       u.ID,
-	}
-
-	c.JSON(http.StatusOK, res)
+	c.SetCookie("jwt", u.accessToken, 60*60*24, "/", "localhost", false, true)
+	c.JSON(http.StatusOK, u)
 }
 
 func (h *Handler) Logout(c *gin.Context) {

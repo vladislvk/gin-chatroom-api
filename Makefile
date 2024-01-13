@@ -18,4 +18,6 @@ migratedown:
 
 .PHONY: postgresinit postgres createdb dropdb migrateup migratedown
 
-# 44:48
+
+# origin := r.Header.Get("Origin")
+# 		return origin == "https://localhost:3000"
